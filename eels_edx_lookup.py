@@ -1,10 +1,19 @@
 import sys
+from optparse import OptionParser
 from PySide import QtCore
 from PySide import QtGui
 from PySide.QtDeclarative import QDeclarativeView
 
 from data import elements_data
 element_datalist = elements_data.ElementList()
+
+parser = OptionParser()
+parser.add_option(
+    "-d", 
+    "--desktop", 
+    help="Toogle non-N9 mode",
+    action="store_true")
+(options, args) = parser.parse_args()
 
 class ElementWrapper(QtCore.QObject):
     def __init__(self, name):
@@ -187,9 +196,13 @@ rootContext.setContextProperty('edsLineList', edsLineList)
 rootContext.setContextProperty('controller', controller)
 rootContext.setContextProperty('elementName', elementName)
 
-view.setSource(QtCore.QUrl('qml/eels_edx_lookup.qml'))
+#"debugging" mode to run without the N9 specific QML
+if options.desktop:
+    view.setSource(QtCore.QUrl('qml/Eels_edx_lookup.qml'))
+else:
+    view.setSource(QtCore.QUrl('qml/N9_wrapper.qml'))
 
-view.setGeometry(100, 100, 400, 240)
+view.setGeometry(100, 100, 900, 540)
 view.show()
 
 app.exec_()
