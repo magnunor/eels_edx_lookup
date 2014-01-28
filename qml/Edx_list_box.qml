@@ -39,7 +39,7 @@ Rectangle {
             color: ((index % 2 == 0)?"#222":"#111")
             width: parent.width
             height: 30
-            Row {
+            Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
