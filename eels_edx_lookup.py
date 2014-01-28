@@ -3,7 +3,7 @@ from PySide import QtCore
 from PySide import QtGui
 from PySide.QtDeclarative import QDeclarativeView
 
-import elements_data
+from data import elements_data
 element_datalist = elements_data.ElementList()
 
 class ElementWrapper(QtCore.QObject):
