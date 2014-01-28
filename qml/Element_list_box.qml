@@ -5,9 +5,15 @@ Rectangle {
         model: elementList
         anchors.fill: parent
         delegate: Rectangle {
+            id: elementRect
             color: ((index % 2 == 0)?"#222":"#111")
             width: parent.width
             height: 60
+            states: State {
+                name: "Current"
+                when: elementRect.ListView.isCurrentItem
+                PropertyChanges { target: elementRect; color: "red" }
+            }
             Text {
                 elide: Text.ElideRight
                 anchors.leftMargin: 10
@@ -19,7 +25,10 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: {controller.elementSelected(model.Element)}
+                onClicked: {
+                    elementRect.ListView.view.currentIndex = index
+                    controller.elementSelected(model.Element)
+                }
             }
         }
     }
