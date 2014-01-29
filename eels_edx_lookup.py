@@ -196,13 +196,14 @@ rootContext.setContextProperty('edsLineList', edsLineList)
 rootContext.setContextProperty('controller', controller)
 rootContext.setContextProperty('elementName', elementName)
 
+
 #"debugging" mode to run without the N9 specific QML
 if options.desktop:
     view.setSource(QtCore.QUrl('qml/Eels_edx_lookup.qml'))
+    view.setGeometry(100, 100, 900, 540)
+    view.show()
 else:
     view.setSource(QtCore.QUrl('qml/N9_wrapper.qml'))
-
-view.setGeometry(100, 100, 900, 540)
-view.show()
+    view.showFullScreen()
 
 app.exec_()

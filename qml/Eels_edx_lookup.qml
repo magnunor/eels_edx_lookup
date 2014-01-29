@@ -1,7 +1,6 @@
 import QtQuick 1.1
 
 Rectangle {
-    anchors.topMargin: 8
     anchors.fill: parent
     color: "transparent"
 
