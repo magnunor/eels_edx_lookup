@@ -18,25 +18,52 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: eels_title_text.bottom
-        height: 40
+        anchors.topMargin: 30
+        height: 27
         id: eelsEdgeText
-        Text {
-            anchors.fill: parent
-            text: "Edge"
-            font.pointSize: 20
-            horizontalAlignment: Text.AlignLeft
+        Rectangle{
+            anchors.left: parent.left
+            anchors.leftMargin: 7
+            anchors.right: parent.right
+            anchors.top: parent.top
+            Text {
+                anchors.fill: parent
+                text: "Edge"
+                font.pointSize: 20
+                horizontalAlignment: Text.AlignLeft
+                rotation: -15
+                transformOrigin: Item.Left
+            }
         }
-        Text {
-            anchors.fill: parent
-            horizontalAlignment: Text.AlignHCenter
-            text: "Energy (eV)"
-            font.pointSize: 20
+        Rectangle{
+            anchors.left: parent.horizontalCenter
+            anchors.leftMargin: -60
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            Text {
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignLeft
+                text: "Energy (eV)"
+                font.pointSize: 20
+                rotation: -15
+                transformOrigin: Item.BottomLeft
+            }
         }
-        Text {
-            anchors.fill: parent
-            text: "Relevance"
-            horizontalAlignment: Text.AlignRight
-            font.pointSize: 20
+        Rectangle{
+            anchors.left: parent.right
+            anchors.leftMargin: -120
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            Text {
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignLeft
+                text: "Relevance"
+                font.pointSize: 20
+                rotation: -15
+                transformOrigin: Item.BottomLeft
+            }
         }
     }
 
