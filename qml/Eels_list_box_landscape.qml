@@ -1,11 +1,6 @@
 import QtQuick 1.1
 
 Rectangle {
-    anchors.top: parent.verticalCenter        
-    anchors.bottom: parent.bottom
-    anchors.left: parent.horizontalCenter
-    anchors.right: parent.right
-        
     Rectangle{
         id: eels_title_rect
         anchors.top: parent.top
@@ -26,7 +21,7 @@ Rectangle {
         anchors.left: eels_title_rect.right
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.topMargin: 30
+        anchors.bottomMargin: 5
         height: 27
         id: eelsEdgeText
         Rectangle{

@@ -13,6 +13,12 @@ parser.add_option(
     "--desktop", 
     help="Toogle non-N9 mode",
     action="store_true")
+parser.add_option(
+    "-l", 
+    "--landscape", 
+    help="Toogle landscape mode",
+    action="store_true")
+
 (options, args) = parser.parse_args()
 
 class ElementWrapper(QtCore.QObject):
@@ -199,11 +205,16 @@ rootContext.setContextProperty('elementName', elementName)
 
 #"debugging" mode to run without the N9 specific QML
 if options.desktop:
-    view.setSource(QtCore.QUrl('qml/Eels_edx_lookup.qml'))
+    if options.landscape:
+        view.setSource(QtCore.QUrl('qml/Eels_edx_lookup_landscape.qml'))
+    else:
+        view.setSource(QtCore.QUrl('qml/Eels_edx_lookup.qml'))
     view.setGeometry(100, 100, 900, 540)
     view.show()
 else:
     view.setSource(QtCore.QUrl('qml/N9_wrapper.qml'))
     view.showFullScreen()
+
+
 
 app.exec_()
